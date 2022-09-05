@@ -14,21 +14,21 @@
     <name>base</name>
     <description>所有服务的基础包</description>
     <modules>
-        <module>standard</module>
-        <module>global-configuration</module>
+        <module>infrastructure</module>
+        <module>web-config-spring-boot-starter</module>
+        <module>redis-wrapper</module>
+        <module>jpa-wrapper</module>
+        <module>distributed-lock-spring-boot-starter</module>
     </modules>
 
+    <properties>
+        <infrastructure.version>0.0.1-SNAPSHOT</infrastructure.version>
+        <web-config.version>0.0.1-SNAPSHOT</web-config.version>
+        <redis-wrapper.version>0.0.1-SNAPSHOT</redis-wrapper.version>
+        <jpa-wrapper.version>0.0.1-SNAPSHOT</jpa-wrapper.version>
+    </properties>
+
     <dependencies>
-        <!--redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <!--redis依赖commons-pool 这个依赖一定要添加-->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -42,5 +42,37 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.qiyue</groupId>
+                <artifactId>infrastructure</artifactId>
+                <version>${infrastructure.version}</version>
+            </dependency>
+             <dependency>
+                <groupId>com.qiyue</groupId>
+                <artifactId>web-config-spring-boot-starter</artifactId>
+                <version>${web-config-spring-boot-starter.version}</version>
+            </dependency>
+             <dependency>
+                <groupId>com.qiyue</groupId>
+                <artifactId>redis-wrapper</artifactId>
+                <version>${redis-wrapper.version}</version>
+            </dependency>
+             <dependency>
+                <groupId>com.qiyue</groupId>
+                <artifactId>jpa-wrapper</artifactId>
+                <version>${jpa-wrapper.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
 </project>

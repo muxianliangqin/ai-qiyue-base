@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.qiyue.config.advice.CustomExceptionHandler,\
+  com.qiyue.config.advice.CustomResponseAdvice,\
+  com.qiyue.config.mvc.WebMvcConfig
